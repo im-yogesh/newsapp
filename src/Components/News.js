@@ -28,7 +28,7 @@ const News = (props) => {
         setArticles(parsedData.articles)
         setTotalResults(parsedData.totalResults)
         setLoading(false)
-        props.setProgress(100);
+         props.setProgress(100);
      }
 
      const searchQuery = async() =>{
@@ -48,12 +48,14 @@ const News = (props) => {
         setLoading(false)
         props.setProgress(100);
      }
-     useEffect(()=>{
+    useEffect(() => {
         document.title = `${capitalizeFirstLetter(props.category)} - News`;
         if(query===undefined)
             updateNews()
         else
             searchQuery();
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
      },[query])
     
     // const handleNextClick = async()=>{
